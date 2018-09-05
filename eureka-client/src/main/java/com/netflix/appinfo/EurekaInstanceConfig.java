@@ -47,6 +47,11 @@ public interface EurekaInstanceConfig {
      *
      * @return the (appname scoped) unique id for this instance
      */
+
+    /*
+     * 返回注册到eureka上的实例的唯一Id
+     */
+
     String getInstanceId();
 
     /**
@@ -54,12 +59,18 @@ public interface EurekaInstanceConfig {
      *
      * @return string denoting the name.
      */
+    /*
+     * 返回注册到eureka上的应用的名字
+     */
     String getAppname();
 
     /**
      * Get the name of the application group to be registered with eureka.
      *
      * @return string denoting the name.
+     */
+    /*
+     * 返回注册到eureka上的应用组的名字
      */
     String getAppGroupName();
 
@@ -71,6 +82,7 @@ public interface EurekaInstanceConfig {
      * :( public API typos are the worst. I think this was meant to be "OnInit".
      *
      * @return true to immediately start taking traffic, false otherwise.
+     * 用来指定当实例被注册到eureka上，是否能够接受流量。有时候应用在接受流量之前，需要一些预处理。
      */
     boolean isInstanceEnabledOnit();
 
@@ -79,6 +91,7 @@ public interface EurekaInstanceConfig {
      * traffic.
      *
      * @return the non-secure port on which the instance should receive traffic.
+     * 返回实例接受流量的不安全的端口号
      */
     int getNonSecurePort();
 
@@ -87,6 +100,7 @@ public interface EurekaInstanceConfig {
      * traffic.
      *
      * @return the secure port on which the instance should receive traffic.
+     * 返回实例接受流量的安全的端口号
      */
     int getSecurePort();
 
@@ -96,6 +110,7 @@ public interface EurekaInstanceConfig {
      *
      * @return true if the <code>non-secure</code> port is enabled, false
      *         otherwise.
+     * 指出实例是否有能接受流量的不安全的端口
      */
     boolean isNonSecurePortEnabled();
 
@@ -104,7 +119,8 @@ public interface EurekaInstanceConfig {
      * traffic or not.
      *
      * @return true if the <code>secure</code> port is enabled, false otherwise.
-     */
+     *指出实例是否有能接受流量的安全的端口
+     * /
     boolean getSecurePortEnabled();
 
     /**
@@ -121,7 +137,8 @@ public interface EurekaInstanceConfig {
      * </p>
      *
      * @return time in seconds
-     */
+     * 指出eureka客户端向euraka服务端发送心跳的频率。如果客户端没有接收到心跳，将会移除客户端。
+     * /
     int getLeaseRenewalIntervalInSeconds();
 
     /**
@@ -139,6 +156,7 @@ public interface EurekaInstanceConfig {
      * </p>
      *
      * @return value indicating time in seconds.
+     * 租约过期时间
      */
     int getLeaseExpirationDurationInSeconds();
 
@@ -154,6 +172,7 @@ public interface EurekaInstanceConfig {
      *
      * @return the string indicating the virtual host name which the clients use
      *         to call this service.
+     * 返回虚拟主机名
      */
     String getVirtualHostName();
 
@@ -169,6 +188,7 @@ public interface EurekaInstanceConfig {
      *
      * @return the string indicating the secure virtual host name which the
      *         clients use to call this service.
+     * 返回安全的虚拟主机名
      */
     String getSecureVirtualHostName();
 
@@ -191,6 +211,7 @@ public interface EurekaInstanceConfig {
      *            otherwise.
      * @return hostname of this instance which is identifiable by other
      *         instances for making remote calls.
+     * 返回主机名，用于其他实例进行调用
      */
     String getHostName(boolean refresh);
 
@@ -209,6 +230,7 @@ public interface EurekaInstanceConfig {
      *
      * @return information that indicates which data center this instance is
      *         deployed in.
+     * 数据中心的信息
      */
     DataCenterInfo getDataCenterInfo();
 
@@ -370,6 +392,7 @@ public interface EurekaInstanceConfig {
     /**
      * Get the namespace used to find properties.
      * @return the namespace used to find properties.
+     * 返回命名空间
      */
     String getNamespace();
 
