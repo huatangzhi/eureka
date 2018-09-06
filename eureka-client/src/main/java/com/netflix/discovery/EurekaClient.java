@@ -37,6 +37,7 @@ public interface EurekaClient extends LookupService {
      * @param region the region that the Applications reside in
      * @return an {@link com.netflix.discovery.shared.Applications} for the matching region. a Null value
      *         is treated as the local region.
+     *         返回一个区域
      */
     public Applications getApplicationsForARegion(@Nullable String region);
 
@@ -45,6 +46,7 @@ public interface EurekaClient extends LookupService {
      *
      * @param serviceUrl The string representation of the service url.
      * @return The registry information containing all applications.
+     * 获取某个特定的eureka service 的所用应用
      */
     public Applications getApplications(String serviceUrl);
 
@@ -54,6 +56,7 @@ public interface EurekaClient extends LookupService {
      * @param vipAddress The VIP address to match the instances for.
      * @param secure true if it is a secure vip address, false otherwise
      * @return - The list of {@link InstanceInfo} objects matching the criteria
+     * 获取virtual ip 的实例列表
      */
     public List<InstanceInfo> getInstancesByVipAddress(String vipAddress, boolean secure);
 
@@ -66,6 +69,7 @@ public interface EurekaClient extends LookupService {
      *               assumed.
      *
      * @return - The list of {@link InstanceInfo} objects matching the criteria, empty list if not instances found.
+     * 获取virtual ip 的实例列表，参数多了一个region
      */
     public List<InstanceInfo> getInstancesByVipAddress(String vipAddress, boolean secure, @Nullable String region);
 
@@ -78,6 +82,7 @@ public interface EurekaClient extends LookupService {
      * @param appName The applicationName to match the instances for.
      * @param secure true if it is a secure vip address, false otherwise.
      * @return - The list of {@link InstanceInfo} objects matching the criteria.
+     * 获取实例列表，根据IP，应用名，
      */
     public List<InstanceInfo> getInstancesByVipAddressAndAppName(String vipAddress, String appName, boolean secure);
 
@@ -87,11 +92,13 @@ public interface EurekaClient extends LookupService {
 
     /**
      * @return in String form all regions (local + remote) that can be accessed by this client
+     * 获取所有已知的region
      */
     public Set<String> getAllKnownRegions();
 
     /**
      * @return the current self instance status as seen on the Eureka server.
+     * 返回当前实例的状态
      */
     public InstanceInfo.InstanceStatus getInstanceRemoteStatus();
 
@@ -160,6 +167,7 @@ public interface EurekaClient extends LookupService {
      * by {@link EurekaClientConfig#getInstanceInfoReplicationIntervalSeconds()}.
      *
      * @param healthCheckHandler app specific healthcheck handler.
+     *
      */
     public void registerHealthCheck(HealthCheckHandler healthCheckHandler);
 

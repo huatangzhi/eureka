@@ -114,16 +114,16 @@ public interface EurekaInstanceConfig {
      */
     boolean isNonSecurePortEnabled();
 
-    /**
+    /*
      * Indicates whether the <code>secure</code> port should be enabled for
      * traffic or not.
      *
      * @return true if the <code>secure</code> port is enabled, false otherwise.
      *指出实例是否有能接受流量的安全的端口
-     * /
+     */
     boolean getSecurePortEnabled();
 
-    /**
+    /*
      * Indicates how often (in seconds) the eureka client needs to send
      * heartbeats to eureka server to indicate that it is still alive. If the
      * heartbeats are not received for the period specified in
@@ -138,7 +138,7 @@ public interface EurekaInstanceConfig {
      *
      * @return time in seconds
      * 指出eureka客户端向euraka服务端发送心跳的频率。如果客户端没有接收到心跳，将会移除客户端。
-     * /
+     */
     int getLeaseRenewalIntervalInSeconds();
 
     /**
@@ -220,6 +220,7 @@ public interface EurekaInstanceConfig {
      * information is sent to eureka server and can be used by other instances.
      *
      * @return Map containing application-specific metadata.
+     * 返回实例的元数据
      */
     Map<String, String> getMetadataMap();
 
@@ -240,6 +241,7 @@ public interface EurekaInstanceConfig {
      * using the information supplied in {@link #getHostName(boolean)}.
      *
      * @return the ip address of this instance.
+     * 返回实例的ip
      */
     String getIpAddress();
 
@@ -257,6 +259,7 @@ public interface EurekaInstanceConfig {
      * </p>
      *
      * @return - relative <code>URL</code> that specifies the status page.
+     * 返回市里的状态URL路径
      */
     String getStatusPageUrlPath();
 
@@ -277,6 +280,7 @@ public interface EurekaInstanceConfig {
      * </p>
      *
      * @return absolute status page URL of this instance.
+     * 返回实例的URL，其他service可以获取这个实例的状态。
      */
     String getStatusPageUrl();
 
@@ -293,6 +297,7 @@ public interface EurekaInstanceConfig {
      * </p>
      *
      * @return relative <code>URL</code> that specifies the home page.
+     * 返回homepage的url路径
      */
     String getHomePageUrlPath();
 

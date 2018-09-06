@@ -41,9 +41,12 @@ public abstract class AbstractInstanceConfig implements EurekaInstanceConfig {
      */
     @Deprecated
     public static final String DEFAULT_NAMESPACE = CommonConstants.DEFAULT_CONFIG_NAMESPACE;
-    
+    /*契约过期时间*/
     private static final int LEASE_EXPIRATION_DURATION_SECONDS = 90;
+    /* 租约续租频率*/
     private static final int LEASE_RENEWAL_INTERVAL_SECONDS = 30;
+
+    /*默认打开不安全端口，不开安全端口*/
     private static final boolean SECURE_PORT_ENABLED = false;
     private static final boolean NON_SECURE_PORT_ENABLED = true;
     private static final int NON_SECURE_PORT = 80;
@@ -211,6 +214,7 @@ public abstract class AbstractInstanceConfig implements EurekaInstanceConfig {
         return hostInfo.first();
     }
 
+    /**/
     private static Pair<String, String> getHostInfo() {
         Pair<String, String> pair;
         try {
